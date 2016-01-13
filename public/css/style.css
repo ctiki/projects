@@ -1,0 +1,96 @@
+@font-face {
+	font-family: "Glyphicons";
+	src: url("fonts/glyphicons-halflings-regular.eot?") format("eot"),
+	url("fonts/glyphicons-halflings-regular.woff") format("woff"),
+	url("fonts/glyphicons-halflings-regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "FontAwesome";
+    src: url("fonts/font-awesome/fonts/fontawesome-webfont.eot") format("eot"),
+    url("fonts/font-awesome/fonts/fontawesome-webfont.woff") format("woff"),
+    url("fonts/font-awesome/fonts/fontawesome-webfont.ttf") format("truetype");
+}
+
+body {
+    font-family: "Helvetica", "HelveticaNeue-Light";
+    font-size: larger;
+    background-size: cover;
+	color: darkslategrey;
+}
+a{
+    color: #080808;
+    text-decoration: none;
+}
+.active{
+    color: red;
+}
+table{
+    float: left;
+    padding: 15px;
+    font-size: 22px;
+    border: 1px solid black;
+}
+table tr, table td{
+    padding: 20px;
+}
+.button{
+    display: block;
+    padding: 5px;
+    background-color: #204d74;
+    color: #bce8f1 ;
+    float: left;
+}
+.button:hover{
+    color: #fff;
+}
+form{
+    font-size: 22px;
+    display: block;
+    width: 400px;
+}
+.gallery_pre{
+    width: 100px;
+}
+div .input{
+    overflow:hidden;
+    width:95px;
+    height:37px;
+    cursor:pointer;
+    background:url(input-file.gif) no-repeat;
+}
+input .images{
+    opacity:0;
+    filter:alpha(opacity:0);
+    font-size:199px;
+    cursor:pointer;
+    padding:0px;
+    margin:0px;
+    border:none;
+    margin-left:-450px;
+}
+.gallery_cat{
+    display: flex;
+    flex-wrap: wrap;
+}
+.gallery_cat div{
+    padding: 5px;
+    width: 150px;
+    background-color: #5bc0de;
+    margin: 15px;
+    height: 65px;
+    display: block;
+}
+.gallery_wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.gallery_items{
+    padding: 10px;
+    width: 180px;
+}
+.gallery_items img{
+    display: block;
+    float: left;
+    width: inherit;
+}
