@@ -11,9 +11,9 @@
     <title><?php echo $Title; ?></title>
     <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/style.css" />
     <script src="<?php echo URL?>public/js/jquery-1.11.3.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>modules-alien/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>modules-alien/bootstrap/css/bootstrap-responsive.min.css" />
-    <script type="text/javascript" src="<?php echo URL;?>modules-alien/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>vendor/bootstrap/css/bootstrap-responsive.min.css" />
+    <script type="text/javascript" src="<?php echo URL;?>vendor/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="header">
