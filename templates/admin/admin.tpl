@@ -10,4 +10,3 @@
         <li>О нас<a href="<?=URL?>admin/read/news"> [edit]</a></li>
         <br/>
     </ul>
-    <a href="<?=URL?>admin/clearDir/aquaprint/">Аквапринт</a>

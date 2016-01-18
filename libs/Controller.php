@@ -1,8 +1,10 @@
 <?php
-	class Controller {
+	class Controller
+    {
         public $view = null;
         public $model = null;
-        function loadModel($name){
+        final function loadModel($name)
+        {
             $path = URL_APPLICATION.$name.'/'.$name.'_model.inc.php';
             if (file_exists($path)){
                 require $path;
@@ -10,7 +12,8 @@
                 $this->model = new $modelName;
             }
         }
-        function loadView($name){
+        final function loadView($name)
+        {
             $path = URL_APPLICATION.$name.'/'.$name.'_view.inc.php';
             if (file_exists($path)){
                 require $path;

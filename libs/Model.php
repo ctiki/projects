@@ -1,6 +1,10 @@
 <?php
 	class Model
 	{
+        public function __construct()
+        {
+        }
+
         public function Delete($tableName, $indexFieldName, $indexFieldValue)
         {
             $sth = Database::$DB->prepare("DELETE FROM {$tableName} WHERE {$indexFieldName} = :id");

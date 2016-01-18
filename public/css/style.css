@@ -21,6 +21,9 @@ a{
     color: #080808;
     text-decoration: none;
 }
+a:hover{
+    text-decoration: none;
+}
 .active{
     color: red;
 }
@@ -56,7 +59,6 @@ div .input{
     width:95px;
     height:37px;
     cursor:pointer;
-    background:url(input-file.gif) no-repeat;
 }
 input .images{
     opacity:0;
@@ -75,10 +77,13 @@ input .images{
 .gallery_cat div{
     padding: 5px;
     width: 150px;
-    background-color: #5bc0de;
+    -webkit-box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.2);
     margin: 15px;
     height: 65px;
     display: block;
+    -webkit-transition-timing-function: easy-in-out; /* Safari and Chrome */
+    transition-timing-function: easy-in-out;
 }
 .gallery_wrapper{
     display: flex;
@@ -93,4 +98,8 @@ input .images{
     display: block;
     float: left;
     width: inherit;
+}
+.main div{
+    height: 150px;
+
 }
