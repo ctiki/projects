@@ -59,7 +59,7 @@ class Admin_Model extends Model
     }
     public function getFieldsModel($table){
         $table = parsedField($table);
-        $sth = Database::$DB->prepare("SELECT COLUMN_NAME, COLUMN_COMMENT, DATA_TYPE\n"
+        $sth = Database::$DB->prepare("SELECT COLUMN_COMMENT\n"
                                         ."FROM INFORMATION_SCHEMA.COLUMNS\n"
                                         ."WHERE table_name = :table");
         $sth->bindValue(':table', $table, PDO::PARAM_STR);

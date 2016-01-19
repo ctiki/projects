@@ -3,9 +3,7 @@
     <table>
         <thead>
             <tr>
-                <?php foreach($Fields as $value): ?>
-                    <td><?=$value['COLUMN_COMMENT'];?></td>
-                <?php endforeach; ?>
+<?php print_r($Fields);?>
             </tr>
         </thead>
         <tbody>
