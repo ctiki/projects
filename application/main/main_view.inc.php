@@ -15,7 +15,4 @@ class Main_View extends View
     public function getGalleryPage(){
         return $this->tpl->Fetch('templates/main/main_gallery.tpl');
     }
-    public function getTpl(){
-        return $this->tpl;
-    }
 }
