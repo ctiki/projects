@@ -5,8 +5,11 @@ class Main_View extends View
     {
         parent::__construct();
     }
-    public function getMainPage($model){
-        $this->tpl->SetParams($model);
+    public function getMainPage($lastWorks){
+        $assocData = [
+            'LastWorks' => $lastWorks
+        ];
+        $this->tpl->SetParams($assocData);
         return $this->tpl->Fetch('templates/main/main.tpl');
     }
     public function getGalleryPage(){
