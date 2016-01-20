@@ -41,7 +41,8 @@ table tr, table td{
     padding: 5px;
     background-color: #204d74;
     color: #bce8f1 ;
-    float: left;
+    width: 100px;
+    clear: both;
 }
 .button:hover{
     color: #fff;
@@ -99,7 +100,12 @@ input .images{
     float: left;
     width: inherit;
 }
-.main div{
-    height: 150px;
-
+.img_main_pre img{
+    height: inherit;
+}
+.img_main_pre{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
 }
