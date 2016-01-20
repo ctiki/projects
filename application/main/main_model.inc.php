@@ -2,7 +2,7 @@
 class Main_Model extends Model{
 
     final public function getLastWorksModel(){
-        $sth = Database::$DB->prepare("SELECT gallery.*, services.eng_title\n"
+        $sth = Database::$DB->prepare("SELECT gallerey.*, services.eng_title\n"
                                     ." FROM `gallery`\n"
                                     ." RIGHT JOIN services\n"
                                     ." ON gallery.id_category=services.id\n"
@@ -15,7 +15,7 @@ class Main_Model extends Model{
             }
         }
         else{
-            $result = 'Ошибка';
+            $result = array();
         }
         return $result;
     }
