@@ -19,7 +19,7 @@
 <div class="header">
     <?php echo HeaderFooter::getMenuView();?>
 </div>
-<div class="container-fluid">
+<div class="container">
     <?php echo $Content;?>
 </div>
 <footer>
