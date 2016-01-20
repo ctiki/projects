@@ -1,6 +1,5 @@
 <div class="row main">
     <h1>Inner Main Page</h1><br/>
-    <?php print_r($LastWorks);?>
     <?php foreach($LastWorks as $row): ?>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="img_main_pre">
