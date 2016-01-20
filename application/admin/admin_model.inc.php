@@ -111,7 +111,6 @@ class Admin_Model extends Model
 
         # We need take eng title for creating a folder
         $dir = GALLERY.$result[0];
-        print_r($dir);
         $image = $_FILES['gallery_image'];
         $imagename = $_FILES['gallery_image']['name'];
         $assocData = $_POST;
@@ -128,12 +127,22 @@ class Admin_Model extends Model
     }
     public function setUpdateRecordModel($table, $id){
         if($table == 'gallery') {
+            $id = $_POST['id_category'];
+            $sth = Database::$DB->prepare("SELECT `eng_title`\n"
+                ."FROM `services`\n"
+                ."WHERE `id` = :id");
+            $sth->bindValue(':id', $id, PDO::PARAM_STR);
+            $sth->execute();
+            $result = $sth->fetch();
+
+            # We need take eng title for creating a folder
+            $dir = GALLERY.$result[0];
             $image = $_FILES['gallery_image'];
             $imagename = $_FILES['gallery_image']['name'];
             $assocData = $_POST;
             $assocData['url'] = $imagename;
             $result = $this->Update($assocData, $table, 'id', $id);
-            Upload::uploadFile($image, 'gallery');
+            Upload::uploadFile($image, $dir);
         }
         else {
             $assocData = $_POST;
