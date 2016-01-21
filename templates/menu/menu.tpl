@@ -22,7 +22,7 @@
                     <?php endforeach;?>
                     <li><a href="<?=URL;?>admin">Admin</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
         </div>
     </nav>
 </div>
