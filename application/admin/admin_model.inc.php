@@ -122,16 +122,28 @@ class Admin_Model extends Model
         return $result;
     }
     public function getUpdateRecordModel($table, $id){
-        $result = $this->GetRecordByFieldName($table, 'id', $id) ? $this->GetRecordByFieldName($table, 'id', $id) : 'Неправильные данные';
+        if ($table == 'gallery'){
+            $sth = Database::$DB->prepare("SELECT `gallery`.*, `services`.`eng_title`\n"
+                                        ." FROM `gallery`\n"
+                                        ." JOIN `services`\n"
+                                        ." ON `gallery`.`id_category` = `services`.`id`\n"
+                                        ." WHERE `gallery`.`id` = :id");
+            $sth->bindValue(':id', $id, PDO::PARAM_STR);
+            $sth->execute();
+            $result = $sth->fetch(PDO::FETCH_ASSOC);
+        }
+        else{
+            $result = $this->GetRecordByFieldName($table, 'id', $id);
+        }
         return  $result;
     }
     public function setUpdateRecordModel($table, $id){
         if($table == 'gallery') {
-            $id = $_POST['id_category'];
+            $id_category = $_POST['id_category'];
             $sth = Database::$DB->prepare("SELECT `eng_title`\n"
                 ."FROM `services`\n"
                 ."WHERE `id` = :id");
-            $sth->bindValue(':id', $id, PDO::PARAM_STR);
+            $sth->bindValue(':id', $id_category, PDO::PARAM_STR);
             $sth->execute();
             $result = $sth->fetch();
 
@@ -140,7 +152,8 @@ class Admin_Model extends Model
             $image = $_FILES['gallery_image'];
             $imagename = $_FILES['gallery_image']['name'];
             $assocData = $_POST;
-            $assocData['url'] = $imagename;
+            if(!empty($imagename))
+                $assocData['url'] = $imagename;
             $result = $this->Update($assocData, $table, 'id', $id);
             Upload::uploadFile($image, $dir);
         }

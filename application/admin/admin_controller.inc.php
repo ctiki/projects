@@ -56,12 +56,12 @@ class Admin_Controller extends Controller
     }
     public function updateAction($table, $id){
         if($this->_loggedIn) {
-            $result = $this->model->getUpdateRecordModel($table, $id);
+            $record = $this->model->getUpdateRecordModel($table, $id);
             $fields = $this->model->getFieldsModel($table);
             $categories = $this->model->getCategoriesModel();
-            $errors = is_array($result) ? null : $result;
+            $errors = is_array($record) ? null : 'Извените, произошла ошибка';
 
-            $this->_resArr['Content'] = $this->view->getUpdatePage($result, $table, $fields, $categories, $errors);
+            $this->_resArr['Content'] = $this->view->getUpdatePage($record, $table, $fields, $categories, $errors);
             $this->_resArr['Title'] = 'Админ/Редактирование';
             return $this->_resArr;
         }
@@ -77,6 +77,14 @@ class Admin_Controller extends Controller
     /**
      * Send Actions
     **/
+    public function uploadAction(){ # Upload Images Method On Input Item
+        if($this->_loggedIn) {
+            $this->model->uploadImageModel();
+            $self = $_SERVER['HTTP_REFERER'];
+            header('location:' . $self);
+            die;
+        }
+    }
     public function confirmCreateAction($table){ # Method That Sends Created Record Into DB
         if($this->_loggedIn) {
             $result = $this->model->setNewRecordModel($table);
@@ -89,20 +97,16 @@ class Admin_Controller extends Controller
                 echo "Error";
         }
     }
-    public function uploadAction(){ # Upload Images Method On Input Item
-        if($this->_loggedIn) {
-            $this->model->uploadImageModel();
-            $self = $_SERVER['HTTP_REFERER'];
-            header('location:' . $self);
-            die;
-        }
-    }
     public function confirmUpdateAction($table, $id){ # Method That Sends Updated Record Into DB
         if($this->_loggedIn) {
-            $this->model->setUpdateRecordModel($table, $id);
-            $self = $_SERVER['HTTP_REFERER'];
-            header('location:' . $self);
-            die;
+            $result = $this->model->setUpdateRecordModel($table, $id);
+            if ($result){
+                $self = $_SERVER['HTTP_REFERER'];
+                header('location:' . $self);
+                die;
+            }
+            else
+                echo "Error";
         }
     }
     public function clearDirAction($dir){
