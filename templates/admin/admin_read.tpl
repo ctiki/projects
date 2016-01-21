@@ -31,11 +31,15 @@
                 </tr>
             <?php endforeach; ?>
         </tbody>
-    </table><br/>
-<?php
-    if($TableName == 'gallery')
-        echo $Pagination->get();
-?>
+    </table>
+    <div>
+        <?php
+        if($TableName == 'gallery')
+            echo $Pagination->get();
+        ?>
+    </div>
+<br/>
+
 <?php else: ?>
-    <h1><?=$Errors?></h1>
+    <h1><?=$Errors;?></h1>
 <?php endif;?>
