@@ -9,6 +9,7 @@
     <meta name="keywords" content="<?php echo $Keywords; ?>" />
     <meta charset="UTF-8">
     <title><?php echo $Title; ?></title>
+
     <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/style.css" />
     <script src="<?php echo URL?>public/js/jquery-1.11.3.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/bootstrap/css/bootstrap.min.css" />
@@ -26,7 +27,6 @@
     <?php echo HeaderFooter::getFooterView();?>
 </footer>
 <script src="<?php echo URL?>public/js/script.js"></script>
-
 </body>
 
 </html>
