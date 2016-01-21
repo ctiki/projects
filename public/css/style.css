@@ -24,8 +24,11 @@ a{
 a:hover{
     text-decoration: none;
 }
-.active{
-    color: red;
+.nav .active{
+    color: red !important;
+}
+.pagination .active{
+    color: red !important;
 }
 table{
     float: left;
@@ -101,9 +104,11 @@ input .images{
     width: inherit;
 }
 .img_main_pre img{
-    height: inherit;
 }
 .img_main_pre{
+    margin: 0 auto;
+    max-height: 300px;
+    max-width: 300px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
