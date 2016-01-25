@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("sd");
 	function back(){
 		window.history.back();
 	}
@@ -60,9 +59,13 @@ $(document).ready(function() {
     $('.categoryList').click(function(){
         $(this).find('.sec-categories').slideToggle('slow');
     });
-    $('.gallery_cat div').hover(function(){
-        $(this).css("box-shadow","0px 0px 0px 2px rgba(0,0,0,0.2)");
+    $('').hover(function(){
+        $(this).css("outline", "15px");
     }, function(){
-        $(this).css("box-shadow","5px 5px 5px 2px rgba(0,0,0,0.2)");
+        $(this).css("outline", "0px");
+    });
+    $('.totop').click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
     });
 });
