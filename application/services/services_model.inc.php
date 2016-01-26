@@ -2,7 +2,7 @@
 class Services_Model extends Model
 {
     public function getCategoriesListModel(){
-        $fields = array('id','title', 'id_parent');
+        $fields = array('id','title', 'id_parent', 'image');
         return $this->GetRecordsInFields('services', $fields);
     }
 

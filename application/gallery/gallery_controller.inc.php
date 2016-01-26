@@ -16,12 +16,13 @@ class Gallery_Controller extends Controller
     {
         $page =  preg_replace("/[^0-9]/", '', $page);
         $page = ($page > 0) ? $page : 1;
+        $order = $this->model->getSortModel();
         $categories = $this->model->getCategoriesListModel();
         $pagination = $this->model->getPaginationModel($category, $page);
         $gallery = $this->model->getImagesByCategoryModel($category, $page);
         if(!sizeof($gallery))
             $errors  = 'Данные отсутствуют';
-        $this->_resArr['Content'] = $this->view->getViewPage($categories, $category, $gallery, $pagination, $errors);
+        $this->_resArr['Content'] = $this->view->getViewPage($categories, $category, $gallery, $pagination, $order, $errors);
         $this->_resArr['Title'] = 'Галерея/Просмотр';
         return $this->_resArr;
     }

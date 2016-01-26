@@ -5,4 +5,5 @@
         </div>
         <i class="fa fa-angle-double-up fa-4x totop"></i>
     </div>
+    Roman Scorobagatov &copy; 2016
 </div>

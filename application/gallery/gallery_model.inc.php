@@ -2,7 +2,6 @@
 class Gallery_Model extends Model
 {
     private $_per_page = 6;
-
     public function getCategoriesListModel()
     {
         $fields = array('id', 'title', 'id_parent', 'eng_title');
@@ -12,13 +11,20 @@ class Gallery_Model extends Model
 
     public function getImagesByCategoryModel($category, $page = 1)
     {
+        $order = $_POST['sorting'] or 'datedec';
+        switch($order){
+            case 'dateinc': $_SESSION['order'] = ['sth' => "ORDER BY date\n", 'value' => $order]; break;
+            case 'datedec': $_SESSION['order'] = ['sth' => "ORDER BY date DESC\n", 'value' => $order]; break;
+            case 'nameinc': $_SESSION['order'] = ['sth' => "ORDER BY title\n", 'value' => $order]; break;
+            case 'namedec': $_SESSION['order'] = ['sth' => "ORDER BY title DESC\n", 'value' => $order]; break;
+        }
         $offset = ($page - 1) * $this->_per_page;
         if($category == 'all'){
             $sth = Database::$DB->prepare("SELECT gallery.*, services.eng_title\n"
                 . " FROM gallery JOIN services\n"
                 . " ON gallery.id_category=services.id\n"
-                . " ORDER BY `date` DESC\n"
-                . "LIMIT $this->_per_page OFFSET $offset");
+                . $_SESSION['order']['sth']
+                . "LIMIT $this->_per_page OFFSET $offset\n");
             $sth->execute();
             while ($row = $sth->fetch(PDO::FETCH_ASSOC))
                 $rows[] = $row;
@@ -28,7 +34,7 @@ class Gallery_Model extends Model
                 . "FROM gallery JOIN services\n"
                 . "ON gallery.id_category=services.id\n"
                 . "WHERE services.eng_title=:val\n"
-                . " ORDER BY `date` DESC\n"
+                . $_SESSION['order']['sth']
                 . "LIMIT $this->_per_page OFFSET $offset");
             $sth->bindParam('val', $category);
             $sth->execute();
@@ -73,5 +79,15 @@ class Gallery_Model extends Model
         $sth->bindParam('val', $id);
         $sth->execute();
         return $sth->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getSortModel()
+    {
+        $sortArray = [
+            ['title' => 'дата +', 'value' => 'dateinc'],
+            ['title' => 'дата -', 'value' => 'datedec'],
+            ['title' => 'название +', 'value' => 'nameinc'],
+            ['title' => 'название -', 'value' => 'namedec']
+        ];
+        return $sortArray;
     }
 }

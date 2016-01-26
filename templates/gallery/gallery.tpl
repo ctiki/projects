@@ -1,5 +1,5 @@
 <div>
-   <h1>Inner Gallery Page</h1>
+   <h1 class="main-title">Галерея</h1>
     <div class="gallery_cat">
     <a href="<?=URL;?>gallery/view/all/page-1">
         <div>

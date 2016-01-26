@@ -70,7 +70,7 @@ class Pagination
         # Получаем ограничения для цикла
         $limits = $this->limits();
 
-        $html = '<ul class="pagination pagination-lg">';
+        $html = '<ul class="pagination">';
         # Генерируем ссылки
         for ($page = $limits[0]; $page <= $limits[1]; $page++) {
             # Если текущая это текущая страница, ссылки нет и добавляется класс active

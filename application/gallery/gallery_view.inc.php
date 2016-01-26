@@ -10,13 +10,14 @@ class Gallery_View extends View
         $this->tpl->SetParam('CategoriesList', $categories);
         return  $this->tpl->Fetch('templates/gallery/gallery.tpl');
     }
-    public function getViewPage($categories, $category, $gallery, $pagination, $errors)
+    public function getViewPage($categories, $category, $gallery, $pagination, $order, $errors)
     {
         $assocArray = array(
             'CategoriesList' => $categories,
             'CategoryName' => $category,
             'Gallery' => $gallery,
             'Pagination' => $pagination,
+            'Order' => $order,
             'Errors' => $errors
         );
         $this->tpl->SetParams($assocArray);

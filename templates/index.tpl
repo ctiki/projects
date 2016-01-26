@@ -11,19 +11,18 @@
     <title><?php echo $Title; ?></title>
 
     <script src="<?php echo URL?>public/js/jquery-1.11.3.js"></script>
-    <!--<script src="<?php echo URL?>public/js/jsForSlider.js"></script>-->
 
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/fonts/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/style.css" importent/>
-    <script type="text/javascript" src="<?php echo URL;?>public/css/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/fonts/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/style.css"/>
+    <script type="text/javascript" src="<?=URL;?>public/css/bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    <!--<div class="slider">
+    <div class="container-fluid">
         <?php require 'slider/slider.tpl';?>
-    </div>-->
+    </div>
     <div class="header">
         <?=HeaderFooter::getMenuView();?>
     </div>
@@ -33,7 +32,9 @@
     <footer>
         <?=HeaderFooter::getFooterView();?>
     </footer>
-<script src="<?php echo URL?>public/js/script.js"></script>
+    <script src="<?=URL;?>public/js/script.js"></script>
+    <script src="<?=URL;?>public/css/bootstrap/js/bootstrap-formhelpers.min.js"></script>
+
 </body>
 
 </html>
