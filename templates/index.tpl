@@ -10,19 +10,20 @@
     <meta charset="UTF-8">
     <title><?php echo $Title; ?></title>
 
-    <script src="<?php echo URL?>public/js/jquery-1.11.3.js"></script>
-
+    <script src="<?=URL;?>public/js/jquery-1.11.3.js"></script>
+    <link href="<?=URL_IMAGES;?>/icon.png" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/fonts/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/resslider/responsiveslides.css" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/style.css"/>
     <script type="text/javascript" src="<?=URL;?>public/css/bootstrap/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    <div class="container-fluid">
-        <?php require 'slider/slider.tpl';?>
-    </div>
+    <?php if($GLOBALS['SiteParams']['CurrentURL'] == 'main')
+                require 'slider/slider.tpl';
+     ?>
     <div class="header">
         <?=HeaderFooter::getMenuView();?>
     </div>
@@ -33,6 +34,7 @@
         <?=HeaderFooter::getFooterView();?>
     </footer>
     <script src="<?=URL;?>public/js/script.js"></script>
+    <script src="<?=URL;?>public/resslider/responsiveslides.js"></script>
     <script src="<?=URL;?>public/css/bootstrap/js/bootstrap-formhelpers.min.js"></script>
 
 </body>

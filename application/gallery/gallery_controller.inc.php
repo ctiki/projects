@@ -9,8 +9,7 @@ class Gallery_Controller extends Controller
 //        $this->_resArr['Content'] = $this->view->getMainPage($categories);
 //        $this->_resArr['Title'] = 'Галерея';
 //        return $this->_resArr;
-        $this->_resArr = $this->viewAction('all', 'page-1');
-        return $this->_resArr;
+        header('location:'.URL.'gallery/view/all/page-1');
     }
     public function viewAction($category, $page)
     {

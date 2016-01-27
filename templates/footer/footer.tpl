@@ -5,5 +5,8 @@
         </div>
         <i class="fa fa-angle-double-up fa-4x totop"></i>
     </div>
+    <div id="logo-wrapper">
+        <img src="<?=URL_IMAGES;?>/logo.png" alt="logo" class="img-responsive" />
+    </div>
     Roman Scorobagatov &copy; 2016
 </div>

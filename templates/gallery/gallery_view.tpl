@@ -2,7 +2,6 @@
 <div class="row">
     <div class="col-sm-3 cat-gallery">
         <div class="gallery-categories-wrapper">
-            <hr>
             категории
             <hr>
             <a href="<?=URL;?>gallery/view/all/page-1" class="<?php if ($CategoryName == 'all') echo 'active';?>">

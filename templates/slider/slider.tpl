@@ -1,12 +1,21 @@
-<!--<div id="sm_slider">
-    <ul>
-        <li><img src="<?=URL_IMAGES;?>slider/2.jpg" alt=""></li>
-        <li><img src="<?=URL_IMAGES;?>slider/1.jpg" alt=""></li>
-        <li><img src="<?=URL_IMAGES;?>slider/4.jpg" alt=""></li>
-        <li><img src="<?=URL_IMAGES;?>slider/3.jpg" alt=""></li>
+<div class="callbacks_container">
+    <ul class="rslides" id="slider">
+        <li>
+            <img src="<?=URL_IMAGES;?>slider/2.jpg" alt="">
+            <p class="caption"><b>Аквапринт</b>- нанесение декоративного покрытия</p>
+        </li>
+        <li>
+            <img src="<?=URL_IMAGES;?>slider/1.jpg" alt="">
+            <p class="caption"><b>Винил</b>- оклейка пленкой разных частей автомобиля</p>
+        </li>
+        <li>
+            <img src="<?=URL_IMAGES;?>slider/4.jpg" alt="">
+            <p class="caption"><b>Тонировка</b>- изменение светопропускающих свойств окон автомобиля</p>
+        </li>
+        <li>
+            <img src="<?=URL_IMAGES;?>slider/3.jpg" alt="">
+            <p class="caption"><b>Пескоструй</b>- очистка дисков и любых других металических поверхностей</p>
+
+        </li>
     </ul>
 </div>
-                <img id="child_img" src="<?=URL_IMAGES;?>slider/2.jpg"><div class='slider_text'><b>Аквапринт</b>- нанесение декоративного покрытия</div>
-                <img id="child_img" src="<?=URL_IMAGES;?>slider/1.jpg"><div class='slider_text'><b>Винил</b>- оклейка пленкой разных частей автомобиля</div>
-                <img id="child_img" src="<?=URL_IMAGES;?>slider/4.jpg"><div class='slider_text'><b>Тонировка</b>- изменение светопропускающих свойств окон автомобиля</div>
-                <img id="child_img" src="<?=URL_IMAGES;?>slider/3.jpg"><div class='slider_text'><b>Пескоструй</b>- очистка дисков и любых других металических поверхностей</div>-->
