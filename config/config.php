@@ -22,7 +22,7 @@
     $SiteParams = array(
         'SiteName' => 'ШОТО',
         'Keywords' => 'Ключ. слова',
-        'Description' => 'Описание',
+        'Description' => 'Стайлинг студия',
         'Title'   => 'Главная страница',
         'Error'   => 'Извените произошла ошибка'
     );

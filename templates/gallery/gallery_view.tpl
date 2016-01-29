@@ -38,7 +38,9 @@
                 <?php foreach($Gallery as $row):?>
                     <div class="gallery_items col-xs-6 col-sm-6 col-md-4 col-lg-4">
                         <div class="gallery_image_wrapper">
-                            <img src="<?=URL_IMAGES;?>gallery/<?=$row['eng_title'];?>/<?=$row['url'];?>" alt="<?=$row['title'];?>" class="img-responsive"/>
+                            <a href="<?=URL_IMAGES;?>gallery/<?=$row['eng_title'];?>/<?=$row['url'];?>" data-lightbox="example-set" data-title="<?=$row['title'];?>">
+                                <img src="<?=URL_IMAGES;?>gallery/<?=$row['eng_title'];?>/<?=$row['url'];?>" alt="<?=$row['title'];?>" class="img-responsive"/>
+                            </a>
                         </div>
                         <?=$row['date'];?>
                         <a href="<?=URL;?>gallery/details/<?=$row['id'];?>">Детали</a>

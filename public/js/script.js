@@ -12,7 +12,10 @@ $(document).ready(function() {
             $('.events').append("<li>after event fired.</li>");
         }
     });
-
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
     function back(){
 		window.history.back();
 	}
@@ -48,5 +51,11 @@ $(document).ready(function() {
     $('.totop').click(function() {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
+    });
+    $('.sorting').change(function(){
+        $(this).closest('form').submit();
+    });
+    $('.admin-category').change(function(){
+        $(this).closest('form').submit();
     });
 });

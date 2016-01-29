@@ -19,12 +19,13 @@ class Admin_View extends View
         $this->tpl->SetParams($assocArray);
         return $this->tpl->Fetch('templates/admin/admin_create.tpl');
     }
-    public function getReadPage($result, $table, $fields, $pagination, $errors){
+    public function getReadPage($result, $table, $fields, $categoriesList = null, $pagination, $errors){
         $assocArray = array(
             'List' => $result,
             'Fields' => $fields,
             'TableName' => $table,
             'Pagination' => $pagination,
+            'CategoriesList' => $categoriesList,
             'Errors' => $errors
         );
         $this->tpl->SetParams($assocArray);

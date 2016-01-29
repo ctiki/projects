@@ -1,7 +1,9 @@
 <?php if(empty($Errors)): ?>
 <div class="row">
     <div class="col-sm-8">
-        <img src="<?=URL_IMAGES;?>gallery/<?=$Record['eng_title'];?>/<?=$Record['url'];?>" alt="<?=$Record['title'];?>" class="img-responsive">
+        <a href="<?=URL_IMAGES;?>gallery/<?=$Record['eng_title'];?>/<?=$Record['url'];?>" data-lightbox="example-1" data-title="<?=$Record['title'];?>">
+            <img src="<?=URL_IMAGES;?>gallery/<?=$Record['eng_title'];?>/<?=$Record['url'];?>" alt="<?=$Record['title'];?>" class="img-responsive">
+        </a>
     </div>
     <div class="col-sm-4">
         <h1><?=$Record['title'];?></h1>

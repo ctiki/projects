@@ -17,21 +17,28 @@ class Admin_Model extends Model
     /**
      * Pagination
     **/
-    public function getTotalCountOfTableModel($table){
+    public function getTotalCountOfTableModel(){
+        $admin_category = $_POST['admin-category'];
+        if(!empty($admin_category))
+            $_SESSION['admin-category'] = $admin_category;
         $sth = Database::$DB->prepare("SELECT count(*)\n"
-            . "FROM {$table}");
+            . "FROM `gallery`\n"
+            . " WHERE `gallery`.`id_category` = {$_SESSION['admin-category']}");
         $sth->execute();
         $result = $sth->fetch();
         return $result[0];
     }
     public function getPaginationModel($table, $page){
-        $total = $this->getTotalCountOfTableModel($table);
+        $total = $this->getTotalCountOfTableModel();
 
         $pagination = new Pagination($total, $page, 4, 'page-');
         return $pagination;
     }
 
     public function getReadModel($table, $page){
+        $admin_category = $_POST['admin-category'];
+        if(!empty($admin_category))
+            $_SESSION['admin-category'] = $admin_category;
         $offset = ($page - 1) * 4;
         if ($table == 'gallery'){
             $sth = Database::$DB->prepare("SELECT\n"
@@ -40,6 +47,7 @@ class Admin_Model extends Model
                 . " FROM\n"
                 . " gallery\n"
                 . " LEFT JOIN services on `gallery`.`id_category` = `services`.`id`\n"
+                . " WHERE `gallery`.`id_category` = {$_SESSION['admin-category']}"
                 . " LIMIT 4 OFFSET $offset");
             $result = $sth->execute();
             if($result){
@@ -96,8 +104,8 @@ class Admin_Model extends Model
             return 'Неправильные данные';
     }
     public function setNewRecordModel($table){
-        $assocDate = $_POST;
-        $this->Insert($assocDate, $table);
+        $assocArray = $_POST;
+        $this->Insert($assocArray, $table);
         unset($_POST);
     }
     public function uploadImageModel(){
@@ -113,11 +121,15 @@ class Admin_Model extends Model
         $dir = GALLERY.$result[0];
         $image = $_FILES['gallery_image'];
         $imagename = $_FILES['gallery_image']['name'];
-        $assocData = $_POST;
-        $assocData['date'] = date("Y-m-d");
-        $assocData['url'] = $imagename;
-        $this->Insert($assocData, 'gallery');
-        $result = Upload::uploadFile($image, $dir);
+        $assocArray = $_POST;
+        $assocArray['date'] = date("Y-m-d H:i:s");
+        $assocArray['url'] = $imagename;
+        if(!array_search('', $assocArray)) {
+            $this->Insert($assocArray, 'gallery');
+            $result = Upload::uploadFile($image, $dir);
+        }
+        else
+            $result = false;
         unset($_POST);
         return $result;
     }
@@ -151,15 +163,15 @@ class Admin_Model extends Model
             $dir = GALLERY.$result[0];
             $image = $_FILES['gallery_image'];
             $imagename = $_FILES['gallery_image']['name'];
-            $assocData = $_POST;
+            $assocArray = $_POST;
             if(!empty($imagename))
-                $assocData['url'] = $imagename;
-            $result = $this->Update($assocData, $table, 'id', $id);
+                $assocArray['url'] = $imagename;
+            $result = $this->Update($assocArray, $table, 'id', $id);
             Upload::uploadFile($image, $dir);
         }
         else {
-            $assocData = $_POST;
-            $result = $this->Update($assocData, $table, 'id', $id);
+            $assocArray = $_POST;
+            $result = $this->Update($assocArray, $table, 'id', $id);
         }
         unset($_POST);
         return $result;

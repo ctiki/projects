@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="<?=URL_IMAGES;?>/logo.png" alt="logo" class="img-responsive" /></a>
+                <a class="navbar-brand" href="<?=URL;?>main"><img src="<?=URL_IMAGES;?>/logo.png" alt="logo" class="img-responsive" /></a>
             </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -20,6 +20,12 @@
                             echo 'active';
                     ?>"><?php echo $row['title'];?></a></li>
                 <?php endforeach;?>
+                <?php if(Session::get('loggedIn')): ?>
+                    <li><a href="<?=URL;?>admin" class = "<?php
+                        if ($GLOBALS['SiteParams']['CurrentURL'] == 'admin')
+                            echo 'active';
+                    ?>">Админ</a></li>
+                <?php endif;?>
             </ul>
         </div>
     </div>

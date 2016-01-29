@@ -1,16 +1,40 @@
-<form action="<?=URL?>admin/confirmUpdate/<?=$TableName;?>/<?=$UpdateRecord['id'];?>" method="post" enctype="multipart/form-data">
-    <label for="title">Оглавление</label>
-    <input type="text" name="title" id="title" value="<?=$UpdateRecord['title'];?>"/><br/>
-    <label for="description">Описание</label>
-    <textarea name="description" id="description" cols="30" rows="10"><?=$UpdateRecord['description'];?></textarea><br/>
-    <label for="id_parent">Категория</label>
-    <select id="id_category" name="id_parent">
-        <?php foreach($Categories as $row): ?>
-            <?php if($row['id_parent'] == 0):?>
-                <option value="<?=$row['id'];?>"<?php if($row['id'] == $UpdateRecord['id_parent'])echo 'selected';?>><?=$row['title'];?></option>
-            <?php endif;?>
-        <?php endforeach;?>
-        <option value="NULL">Главная</option>
-    </select><br/>
-    <button type="submit">изменить</button>
+<form action="<?=URL?>admin/confirmUpdate/<?=$TableName;?>/<?=$UpdateRecord['id'];?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="form-group">
+                <label for="title" class="col-sm-4 control-label">Оглавление</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="title" placeholder="оглавление" name="title" value="<?=$UpdateRecord['title'];?>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="id_parent" class="col-sm-4 control-label">Категория</label>
+                <div class="col-sm-8">
+                    <select id="id_category" name="id_parent" class="form-control">
+                        <?php foreach($Categories as $row): ?>
+                            <?php if($row['id_parent'] == 0):?>
+                                <option value="<?=$row['id'];?>"<?php if($row['id'] == $UpdateRecord['id_parent'])echo 'selected';?>><?=$row['title'];?></option>
+                            <?php endif;?>
+                        <?php endforeach;?>
+                        <option value="NULL">Главная</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" class="form-control btn btn-default">Создать</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-offset-1 col-sm-7">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="описание"><?=$UpdateRecord['description'];?></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
