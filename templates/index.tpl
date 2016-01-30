@@ -21,10 +21,13 @@
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/lightbox/dist/css/lightbox.css" >
 </head>
     <body>
+        <div class="header">
+            <?=HeaderFooter::getMenuView();?>
+        </div>
         <?php if($GLOBALS['SiteParams']['CurrentURL'] == 'main'): ?>
-            <header>
-                <?php require 'slider/slider.tpl';?>
-            </header>
+        <header>
+            <?php require 'slider/slider.tpl';?>
+        </header>
         <?php else: ?>
         <header>
             <span class="header-info">
@@ -33,9 +36,6 @@
             <img src="<?=URL_IMAGES;?>header.png" alt="header" class="img-responsive"/>
         </header>
         <?php endif;?>
-        <div class="header">
-            <?=HeaderFooter::getMenuView();?>
-        </div>
         <div class="container">
             <?=$Content;?>
         </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Час створення: Січ 28 2016 р., 00:26
+-- Час створення: Січ 29 2016 р., 16:54
 -- Версія сервера: 5.5.47-0ubuntu0.14.04.1
 -- Версія PHP: 5.5.9-1ubuntu4.14
 
@@ -57,19 +57,18 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ИД',
   `title` varchar(150) DEFAULT NULL COMMENT 'Оглавление',
   `description` varchar(255) DEFAULT NULL COMMENT 'Описание',
-  `image` varchar(255) DEFAULT NULL COMMENT 'Изображение',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Дамп даних таблиці `contacts`
 --
 
-INSERT INTO `contacts` (`id`, `title`, `description`, `image`) VALUES
-(1, 'Телефон', 'kyivstar: +380683048173<br />life:) +380937476646', NULL),
-(3, 'Почта', 'rs_tuning@mail.ua', NULL),
-(4, 'instagram', 'https://instagram.com/rs_styling_studio', NULL),
-(5, 'ВКонтакте', 'https://vk.com/rs_styling_studio', NULL);
+INSERT INTO `contacts` (`id`, `title`, `description`) VALUES
+(1, 'Телефон', '<br />kyivstar: +380683048173<br /> life:) +380937476646'),
+(3, 'Почта', 'rs_tuning@mail.ua'),
+(4, 'instagram', 'https://instagram.com/rs_styling_studio'),
+(5, 'ВКонтакте', 'https://vk.com/rs_styling_studio');
 
 -- --------------------------------------------------------
 
@@ -82,29 +81,24 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `title` varchar(150) DEFAULT NULL COMMENT 'Оглавление',
   `description` varchar(255) DEFAULT NULL COMMENT 'Описание',
   `url` varchar(255) DEFAULT NULL COMMENT 'Имя',
-  `date` date NOT NULL COMMENT 'Дата',
+  `date` datetime NOT NULL COMMENT 'Дата',
   `id_category` int(11) NOT NULL COMMENT 'Категория',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `id_category` (`id_category`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
 -- Дамп даних таблиці `gallery`
 --
 
 INSERT INTO `gallery` (`id`, `title`, `description`, `url`, `date`, `id_category`) VALUES
-(14, 'dfgdfvcb6777', 'апеа', 'ie5r9k-yAcg.jpg', '2016-01-02', 1),
-(15, 'dfgdfvcb5', 'апр', '2932.jpg', '2016-01-03', 1),
-(18, 'dfgdfvcb', 'апр', '1heqIxNkhqs.jpg', '2016-01-04', 1),
-(19, 'cosmos', 'some cosmos', 'b43xXi0YWS8.jpg', '2016-01-05', 2),
-(20, 'Диски', 'Покраска дисков с помощью аквапринта', '8Ngq2mMFASk.jpg', '2016-01-06', 1),
-(21, 'Aero', 'Aero test', 'qvlxygHxkz4.jpg', '2016-01-07', 2),
-(22, 'dfgdfvcb', 'аипа', 'A4iTG8h3cU8.jpg', '2016-01-01', 1),
-(23, 'Something', 'всм', 'tox0f6JWSxs.jpg', '2016-01-20', 1),
-(24, 'dfg675877', 'dfgdfg', '8asDWrugz6Y.jpg', '2016-01-21', 1),
-(25, 'New title', 'Some Description', 'Gm992nSymOM.jpg', '2016-01-21', 1),
-(26, 'Last image', 'last image', 'F91Hhf8-DPM.jpg', '2016-01-22', 2);
+(57, 'test', 'test', 'text.png', '2016-01-29 14:35:39', 1),
+(58, 'new test', 'new test', 'text.png', '2016-01-29 14:39:48', 1),
+(59, 'test 3', 'test', 'text.png', '2016-01-29 14:40:34', 2),
+(60, 'test 4', 'test 4', 'text.png', '2016-01-29 14:40:50', 3),
+(61, 'test 5', 'test 5', 'text.png', '2016-01-29 14:41:04', 4),
+(62, 'test 6', 'test 6', 'text.png', '2016-01-29 14:41:18', 5);
 
 -- --------------------------------------------------------
 
@@ -142,12 +136,12 @@ CREATE TABLE IF NOT EXISTS `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ИД',
   `title` varchar(150) DEFAULT NULL COMMENT 'Оглавление',
   `description` text COMMENT 'Описание',
-  `id_parent` int(11) DEFAULT NULL COMMENT 'Род. категория',
+  `id_parent` int(11) DEFAULT NULL COMMENT 'Р. Kатегория',
   `eng_title` varchar(150) NOT NULL COMMENT 'Англ. название',
   `image` varchar(100) NOT NULL COMMENT 'Изображение',
   `enable` tinyint(1) DEFAULT '1' COMMENT 'Вкл',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Дамп даних таблиці `services`
