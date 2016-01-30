@@ -22,7 +22,8 @@ class Admin_Controller extends Controller
 
         return $this->_resArr;
     }
-    public function logoutAction(){
+    public function logoutAction()
+    {
         Session::destroy();
         header('location:'.URL.'admin');
     }
@@ -30,7 +31,8 @@ class Admin_Controller extends Controller
      * CRUD Operation Release(Create Read Update Delete)
      * It Shows Records For Needed Operation
     **/
-    public function createAction($table){
+    public function createAction($table)
+    {
         if($this->_loggedIn) {
             $this->model->getCreateModel($table);
             $categories = $this->model->getCategoriesModel();
@@ -39,14 +41,15 @@ class Admin_Controller extends Controller
             return $this->_resArr;
         }
     }
-    public function readAction($table, $page = 1){
+    public function readAction($table, $page = 1)
+    {
         if($this->_loggedIn) {
             if($table == 'gallery'){
                 $categoriesList = $this->model->getCategoriesModel();
             }
             $page =  preg_replace("/[^0-9]/", '', $page);
             $page = ($page > 0) ? $page : 1;
-            $pagination = $this->model->getPaginationModel($table, $page);
+            $pagination = $this->model->getPaginationModel($page);
             $result = $this->model->getReadModel($table, $page);
             $fields = $this->model->getFieldsModel($table);
 

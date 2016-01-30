@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="generator" content="MY CMS" />
+    <meta name="generator" content="RSStyling" />
     <meta name="description" content="<?=$Description; ?>" />
-    <meta name="keywords" content="<?=$Keywords; ?>" />
+    <meta name="keywords" content="<?=$Keywords;?>" />
     <meta charset="UTF-8">
     <title><?php echo $Title; ?></title>
 
@@ -16,15 +16,12 @@
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/fonts/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/resslider/responsiveslides.css" />
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/plugins/resslider/responsiveslides.css" />
     <link rel="stylesheet" type="text/css" href="<?=URL;?>public/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/lightbox/dist/css/lightbox.css" >
+    <link rel="stylesheet" type="text/css" href="<?=URL;?>public/plugins/lightbox/dist/css/lightbox.css" >
 </head>
     <body>
-        <div class="header">
-            <?=HeaderFooter::getMenuView();?>
-        </div>
-        <?php if($GLOBALS['SiteParams']['CurrentURL'] == 'main'): ?>
+        <!--<?php if($GLOBALS['SiteParams']['CurrentURL'] == 'main'): ?>
         <header>
             <?php require 'slider/slider.tpl';?>
         </header>
@@ -35,7 +32,10 @@
             </span>
             <img src="<?=URL_IMAGES;?>header.png" alt="header" class="img-responsive"/>
         </header>
-        <?php endif;?>
+        <?php endif;?>-->
+        <div class="header">
+            <?=HeaderFooter::getMenuView();?>
+        </div>
         <div class="container">
             <?=$Content;?>
         </div>
@@ -43,10 +43,14 @@
             <?=HeaderFooter::getFooterView();?>
         </footer>
         <script src="<?=URL;?>public/js/script.js"></script>
-        <script src="<?=URL;?>public/resslider/responsiveslides.js"></script>
+        <script src="<?=URL;?>public/plugins/resslider/responsiveslides.js"></script>
         <script src="<?=URL;?>public/css/bootstrap/js/bootstrap-formhelpers.min.js"></script>
         <script type="text/javascript" src="<?=URL;?>public/css/bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?=URL;?>public/lightbox/dist/js/lightbox.js"></script>
+        <script src="<?=URL;?>public/plugins/lightbox/dist/js/lightbox.js"></script>
+        <script src="<?=URL;?>public/plugins/ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace("description");
+        </script>
     </body>
 
 </html>

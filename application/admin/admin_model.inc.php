@@ -1,7 +1,11 @@
 <?php
 class Admin_Model extends Model
 {
-    public function validateModel(){ # Authentication model. Function check login and password and return true if all right, or false if login or password are incorrect
+    /**Authentication model. Function check login and password and return true if all right, or false if login or password are incorrect
+     * @return bool
+     */
+    public function validateModel()
+    {
         $getLogin = Hash::encrypt(parsedField($_POST['login']));
         $getPassword = Hash::encrypt(parsedField($_POST['password']));
         $user = $this->GetRecordByFieldName('users', 'status', 'admin');
@@ -14,28 +18,42 @@ class Admin_Model extends Model
             return false;
         }
     }
-    /**
-     * Pagination
-    **/
-    public function getTotalCountOfTableModel(){
+
+    /** Get total count of records from table. Return int.
+     * @return mixed
+     */
+    public function getTotalCountOfTableModel()
+    {
         $admin_category = $_POST['admin-category'];
         if(!empty($admin_category))
             $_SESSION['admin-category'] = $admin_category;
+
         $sth = Database::$DB->prepare("SELECT count(*)\n"
-            . "FROM `gallery`\n"
-            . " WHERE `gallery`.`id_category` = {$_SESSION['admin-category']}");
+            ." FROM `gallery`\n"
+            ." WHERE `gallery`.`id_category` = {$_SESSION['admin-category']}");
         $sth->execute();
         $result = $sth->fetch();
         return $result[0];
     }
-    public function getPaginationModel($table, $page){
-        $total = $this->getTotalCountOfTableModel();
 
+    /** Pagination function. That takes argument page end return Pagination obj.
+     * @param $page
+     * @return Pagination
+     */
+    public function getPaginationModel($page)
+    {
+        $total = $this->getTotalCountOfTableModel();
         $pagination = new Pagination($total, $page, 4, 'page-');
         return $pagination;
     }
 
-    public function getReadModel($table, $page){
+    /**
+     * @param $table
+     * @param $page
+     * @return array|string
+     */
+    public function getReadModel($table, $page)
+    {
         $admin_category = $_POST['admin-category'];
         if(!empty($admin_category))
             $_SESSION['admin-category'] = $admin_category;
@@ -65,7 +83,8 @@ class Admin_Model extends Model
             return $result;
         }
     }
-    public function getFieldsModel($table){
+    public function getFieldsModel($table)
+    {
         $table = parsedField($table);
         $sth = Database::$DB->prepare("SELECT COLUMN_COMMENT\n"
                                         ."FROM INFORMATION_SCHEMA.COLUMNS\n"
@@ -81,7 +100,8 @@ class Admin_Model extends Model
         else
             return 'Неправильные данные';
     }
-    public function getCreateModel($table){
+    public function getCreateModel($table)
+    {
         $table = parsedField($table);
         $result = $this->GetAllRecords($table);
         if($result){
@@ -90,7 +110,8 @@ class Admin_Model extends Model
         else
             return 'Неправильные данные';
     }
-    public function getCategoriesModel(){
+    public function getCategoriesModel()
+    {
         $sth = Database::$DB->prepare("SELECT `id`, `title`, `id_parent`, `eng_title`\n"
                                         ."FROM `services`");
         $result = $sth->execute();
@@ -103,12 +124,14 @@ class Admin_Model extends Model
         else
             return 'Неправильные данные';
     }
-    public function setNewRecordModel($table){
+    public function setNewRecordModel($table)
+    {
         $assocArray = $_POST;
         $this->Insert($assocArray, $table);
         unset($_POST);
     }
-    public function uploadImageModel(){
+    public function uploadImageModel()
+    {
         $id = $_POST['id_category'];
         $sth = Database::$DB->prepare("SELECT `eng_title`\n"
             ."FROM `services`\n"
@@ -133,7 +156,8 @@ class Admin_Model extends Model
         unset($_POST);
         return $result;
     }
-    public function getUpdateRecordModel($table, $id){
+    public function getUpdateRecordModel($table, $id)
+    {
         if ($table == 'gallery'){
             $sth = Database::$DB->prepare("SELECT `gallery`.*, `services`.`eng_title`\n"
                                         ." FROM `gallery`\n"
@@ -149,7 +173,8 @@ class Admin_Model extends Model
         }
         return  $result;
     }
-    public function setUpdateRecordModel($table, $id){
+    public function setUpdateRecordModel($table, $id)
+    {
         if($table == 'gallery') {
             $id_category = $_POST['id_category'];
             $sth = Database::$DB->prepare("SELECT `eng_title`\n"
@@ -176,7 +201,8 @@ class Admin_Model extends Model
         unset($_POST);
         return $result;
     }
-    public function deleteRecordModel($table, $id){
+    public function deleteRecordModel($table, $id)
+    {
         $this->Delete($table, 'id', $id);
     }
     public function clearDirectoryModel($dir){

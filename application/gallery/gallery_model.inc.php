@@ -72,10 +72,12 @@ class Gallery_Model extends Model
     }
     public function getRecordByIdModel($id)
     {
-        $sth = Database::$DB->prepare("SELECT gallery.*, services.eng_title, services.title AS services_title\n"
-                                        . " FROM gallery JOIN services\n"
-                                        . " ON gallery.id_category=services.id\n"
-                                        . " WHERE gallery.id = :val");
+        $query =  " SELECT gallery.*, services.eng_title, services.title AS services_title\n"
+                . " FROM gallery\n"
+                . " JOIN services\n"
+                . " ON gallery.id_category=services.id\n"
+                . " WHERE gallery.id = :val";
+        $sth = Database::$DB->prepare($query);
         $sth->bindParam('val', $id);
         $sth->execute();
         return $sth->fetch(PDO::FETCH_ASSOC);

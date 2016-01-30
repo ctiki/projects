@@ -5,13 +5,15 @@ class Admin_View extends View
     {
         parent::__construct();
     }
-    public function getMainPage(){
+    public function getMainPage()
+    {
         return $this->tpl->Fetch('templates/admin/admin.tpl');
     }
     public function getEnterPage(){
         return $this->tpl->Fetch('templates/admin/admin_enter.tpl');
     }
-    public function getCreatePage($table, $categories){
+    public function getCreatePage($table, $categories)
+    {
         $assocArray = array(
             'TableName' => $table,
             'Categories' => $categories
@@ -19,7 +21,8 @@ class Admin_View extends View
         $this->tpl->SetParams($assocArray);
         return $this->tpl->Fetch('templates/admin/admin_create.tpl');
     }
-    public function getReadPage($result, $table, $fields, $categoriesList = null, $pagination, $errors){
+    public function getReadPage($result, $table, $fields, $categoriesList = null, $pagination, $errors)
+    {
         $assocArray = array(
             'List' => $result,
             'Fields' => $fields,
@@ -31,7 +34,8 @@ class Admin_View extends View
         $this->tpl->SetParams($assocArray);
         return $this->tpl->Fetch('templates/admin/admin_read.tpl');
     }
-    public function getUpdatePage($result, $table, $fields, $categories, $errors){
+    public function getUpdatePage($result, $table, $fields, $categories, $errors)
+    {
         $assocArray = array(
             'UpdateRecord' => $result,
             'TableName' => $table,

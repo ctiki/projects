@@ -3,7 +3,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda consequuntur cumque deleniti eveniet id iste iusto, laudantium molestiae non quam quod quos repellat sunt tenetur, ullam, vel veniam voluptatem.</p>
         <p>Как-то так, кароче.</p>
         <div class="title-block">
-            <h1 class="main-title">Почему мы</h1>
+            <h1 class="main-title">Почему мы ?</h1>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="reasons">
