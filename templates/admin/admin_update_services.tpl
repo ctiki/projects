@@ -1,10 +1,12 @@
-<form action="<?=URL?>admin/confirmUpdate/<?=$TableName;?>/<?=$UpdateRecord['id'];?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+<form action="<?=URL?>admin/confirmUpdate/<?=$TableName;?>/<?=$UpdateRecord['id'];?>" method="post"
+      enctype="multipart/form-data" class="form-horizontal">
     <div class="col-sm-4">
         <div class="row">
             <div class="form-group">
                 <label for="title" class="col-sm-4 control-label">Оглавление</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="title" placeholder="оглавление" name="title" value="<?=$UpdateRecord['title'];?>">
+                    <input type="text" class="form-control" id="title" placeholder="оглавление" name="title"
+                           value="<?=$UpdateRecord['title'];?>">
                 </div>
             </div>
             <div class="form-group">
@@ -12,9 +14,11 @@
                 <div class="col-sm-8">
                     <select id="id_category" name="id_parent" class="form-control">
                         <?php foreach($Categories as $row): ?>
-                            <?php if($row['id_parent'] == 0):?>
-                                <option value="<?=$row['id'];?>"<?php if($row['id'] == $UpdateRecord['id_parent'])echo 'selected';?>><?=$row['title'];?></option>
-                            <?php endif;?>
+                        <?php if($row['id_parent'] == 0):?>
+                        <option value="<?=$row['id'];?>"
+                        <?php if($row['id'] == $UpdateRecord['id_parent'])echo 'selected';?>
+                        ><?=$row['title'];?></option>
+                        <?php endif;?>
                         <?php endforeach;?>
                         <option value="NULL">Главная</option>
                     </select>
@@ -32,7 +36,8 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-sm-12">
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="описание"><?=$UpdateRecord['description'];?></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control"
+                              placeholder="описание"><?=$UpdateRecord['description'];?></textarea>
                 </div>
             </div>
         </div>
