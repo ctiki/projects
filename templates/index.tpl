@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="generator" content="RSStyling" />
-   <!-- <meta name="description" content="<?=$Description; ?>" />-->
+    <meta name="description" content="<?=$Description; ?>" />
     <meta name="keywords" content="<?=$Keywords;?>" />
     <meta charset="UTF-8">
     <title><?php echo $Title; ?></title>

@@ -1,5 +1,5 @@
-<h1 class="main-title">Галерея</h1>
 <div class="row">
+    <h1 class="main-title">Галерея</h1>
     <div class="col-sm-3 cat-gallery">
         <div class="gallery-categories-wrapper">
             категории

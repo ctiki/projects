@@ -1208,6 +1208,8 @@ header .balloon-a {
   -moz-opacity: 1;
   opacity: 1;
 }
+
+/*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
 .cke_toolbar.active:after {
   content: '';
   display: block;
@@ -1222,8 +1224,11 @@ header .balloon-a {
   -moz-background-clip: padding;
   border-radius: 5px;
   background-clip: padding-box;
+  /*noinspection CssRedundantUnit,CssRedundantUnit*/
   -webkit-box-shadow: 0px 0px 15px 3px #fff4b0;
+  /*noinspection CssRedundantUnit,CssRedundantUnit*/
   -moz-box-shadow: 0px 0px 15px 3px #fff4b0;
+  /*noinspection CssRedundantUnit,CssRedundantUnit*/
   box-shadow: 0px 0px 15px 3px #fff4b0;
 }
 .cke_toolbar.active .cke_toolgroup {

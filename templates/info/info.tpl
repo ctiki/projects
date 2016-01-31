@@ -1,3 +1,3 @@
-<div>
-   <h1>Inner Info Page</h1>
+<div class="row">
+   <h1 class="main-title">О нас</h1>
 </div>

@@ -42,16 +42,23 @@ header span{
 .row{
     padding-top: 20px;
 }
+
+/*noinspection CssRedundantUnit*/
 .nav{
     font-family: 'BebasLight', sans-serif;
     background-color: transparent !important;
     border-bottom: 1px solid rgba(96,122, 147, 0.4) !important;
+    /*noinspection CssRedundantUnit*/
     border-radius: 0px !important;
 }
+
+/*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
 .nav .active{
     font-weight: bold;
     color: #a39065 !important;
+    /*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
     -webkit-box-shadow: inset 0px -2px 0px 0px #a39065;
+    /*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
     box-shadow: inset 0px -2px 0px 0px #a39065;
 }
 .header{
@@ -64,7 +71,10 @@ header span{
     overflow-x:hidden;
     overflow-y: hidden !important;
 }
+
+/*noinspection CssRedundantUnit*/
 .navbar{
+    /*noinspection CssRedundantUnit*/
     margin-bottom: 0px;
 }
 ul.nav{
@@ -115,8 +125,12 @@ ul.pagination>li.active a{
     -o-transition: box-shadow 0.5s ease-in-out;
     transition: box-shadow 0.2s ease-in-out;
 }
+
+/*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
 .navbar-nav>li:hover{
+    /*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
     -webkit-box-shadow: inset 0px -8px 0px 0px #a39065;
+    /*noinspection CssRedundantUnit,CssRedundantUnit,CssRedundantUnit*/
     box-shadow: inset 0px -8px 0px 0px #a39065;
 }
 
@@ -311,12 +325,16 @@ div .input{
     height:37px;
     cursor:pointer;
 }
+
+/*noinspection CssRedundantUnit,CssRedundantUnit*/
 input .images{
     opacity:0;
     filter:alpha(opacity:0);
     font-size:199px;
     cursor:pointer;
+    /*noinspection CssRedundantUnit*/
     padding:0px;
+    /*noinspection CssRedundantUnit*/
     margin:0px;
     border:none;
     margin-left:-450px;

@@ -1,3 +1,5 @@
+<h1 class="main-title">Страница просмотра [ <?=$TableName;?> ]</h1>
+
 <a href="<?=URL;?>admin/create/<?=$TableName;?>" class="button">Добавить</a>
 <div class="row">
     <div class="admin-read-table-wrapper">
@@ -40,7 +42,7 @@
                     <?php endforeach;?>
                     <td>
                         <a href="<?=URL;?>admin/update/<?=$TableName;?>/<?=$value['id'];?>"><i class="fa fa-pencil-square-o"></i></a>
-                        <a href="<?=URL;?>admin/delete/<?=$TableName;?>/<?=$value['id'];?>"><i class="fa fa-trash-o"></i></a>
+                        <a href="<?=URL;?>admin/delete/<?=$TableName;?>/<?=$value['id'];?>" onClick="return (confirm('Вы уверены что хотите удалить запись безвозвратно ?'));"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

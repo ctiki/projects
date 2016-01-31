@@ -53,9 +53,11 @@ a
 	color: #0782C1;
 }
 
+/*noinspection CssRedundantUnit*/
 ol,ul,dl
 {
 	/* IE7: reset rtl list margin. (#7334) */
+	/*noinspection CssRedundantUnit*/
 	*margin-right: 0px;
 	/* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
 	padding: 0 40px;
@@ -67,8 +69,10 @@ h1,h2,h3,h4,h5,h6
 	line-height: 1.2;
 }
 
+/*noinspection CssRedundantUnit*/
 hr
 {
+	/*noinspection CssRedundantUnit*/
 	border: 0px;
 	border-top: 1px solid #ccc;
 }
