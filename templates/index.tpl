@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="generator" content="RSStyling" />
-    <meta name="description" content="<?=$Description; ?>" />
+   <!-- <meta name="description" content="<?=$Description; ?>" />-->
     <meta name="keywords" content="<?=$Keywords;?>" />
     <meta charset="UTF-8">
     <title><?php echo $Title; ?></title>
@@ -48,9 +48,11 @@
         <script type="text/javascript" src="<?=URL;?>public/css/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?=URL;?>public/plugins/lightbox/dist/js/lightbox.js"></script>
         <script src="<?=URL;?>public/plugins/ckeditor/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace("description");
-        </script>
+        <?php if($GLOBALS['SiteParams']['CurrentURL'] == 'admin'): ?>
+            <script>
+                CKEDITOR.replace("description");
+            </script>
+        <?php endif;?>
     </body>
 
 </html>

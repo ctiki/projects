@@ -107,8 +107,4 @@ class Admin_Controller extends Controller
             die;
         }
     }
-    public function clearDirAction($dir){
-        $dirlist = $this->model->clearDirectoryModel($dir);
-        print_r($dirlist);
-    }
 }
